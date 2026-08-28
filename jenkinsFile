@@ -1,0 +1,22 @@
+pipeline {
+                agent{
+                docker{
+                    image 'cypress/included:latest'
+                    args '-u root --entrypoint='
+                }
+            }
+
+    stages {
+        stage('Install') {
+            steps {
+                sh 'npm ci'
+            }
+        }
+
+        stage('Tests') {
+            steps {
+                sh 'npx cypress run'
+            }
+        }
+    }
+}
