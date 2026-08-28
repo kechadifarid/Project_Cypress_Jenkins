@@ -18,9 +18,11 @@
   },
   "homepage": "https://github.com/kechadifarid/Project_Cypress_Jenkins#readme",
   "dependencies": {
+    "@shelex/cypress-allure-plugin": "^2.41.2",
     "cypress": "^14.5.4"
   },
   "devDependencies": {
-    "@faker-js/faker": "^10.6.0"
+    "@faker-js/faker": "^10.6.0",
+    "allure-cypress": "^3.11.0"
   }
 }
