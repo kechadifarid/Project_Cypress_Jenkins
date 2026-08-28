@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/kechadifarid/Project_Cypress_Jenkins#readme",
   "dependencies": {
-    "@shelex/cypress-allure-plugin": "^2.41.2",
     "cypress": "^14.5.4"
   },
   "devDependencies": {

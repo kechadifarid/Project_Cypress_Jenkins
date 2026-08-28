@@ -20,8 +20,9 @@ pipeline {
                 sh 'npm ci'
 
                 sh 'npx cypress run'
+
                 sh 'echo "===== ALLURE RESULTS ====="'
-                sh 'find allure-results -type f -maxdepth 2 -print || true'
+                sh 'find allure-results -type f -print || true'
             }
         }
     }
