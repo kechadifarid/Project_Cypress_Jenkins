@@ -1,25 +1,38 @@
 pipeline {
-                agent{
-                docker{
+
+    agent any
+
+    stages {
+
+        stage('Install') {
+            agent {
+                docker {
                     image 'cypress/included:latest'
                     args '-u root --entrypoint='
+                    reuseNode true
                 }
             }
 
-    stages {
-        stage('Install') {
             steps {
                 sh 'npm ci'
             }
         }
 
         stage('Tests') {
+            agent {
+                docker {
+                    image 'cypress/included:latest'
+                    args '-u root --entrypoint='
+                    reuseNode true
+                }
+            }
+
             steps {
                 sh 'npx cypress run'
-                sh 'npx allure generate'
             }
         }
     }
+
     post {
         always {
             allure([
