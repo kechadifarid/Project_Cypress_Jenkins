@@ -15,20 +15,8 @@ pipeline {
 
             steps {
                 sh 'npm ci'
-            }
-        }
-
-        stage('Tests') {
-            agent {
-                docker {
-                    image 'cypress/included:latest'
-                    args '-u root --entrypoint='
-                    reuseNode true
-                }
-            }
-
-            steps {
                 sh 'npx cypress run'
+
             }
         }
     }
